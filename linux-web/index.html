@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Web Desktop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <div class="boot-logo">
+            <i class="fab fa-linux"></i>
+        </div>
+        <div class="boot-text">Starting Linux Web Desktop...</div>
+        <div class="boot-loader"></div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="hidden">
+        <div class="login-container">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2>User</h2>
+            <input type="password" id="password-input" placeholder="Password (any password works)">
+            <button id="login-btn">Login</button>
+        </div>
+    </div>
+
+    <!-- Desktop Environment -->
+    <div id="desktop" class="hidden">
+        <!-- Top Bar -->
+        <div id="top-bar">
+            <div class="top-left">
+                <button id="activities-btn">Activities</button>
+            </div>
+            <div class="top-center" id="clock"></div>
+            <div class="top-right">
+                <div class="system-icons">
+                    <i class="fas fa-volume-up" title="Volume"></i>
+                    <i class="fas fa-wifi" title="Network"></i>
+                    <i class="fas fa-battery-three-quarters" title="Battery"></i>
+                    <i class="fas fa-power-off" id="power-btn" title="Power"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Area -->
+        <div id="desktop-area">
+            <!-- Desktop Icons will be generated here -->
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container"></div>
+
+        <!-- Bottom Panel / Dock -->
+        <div id="bottom-panel">
+            <button class="dock-btn" id="show-apps-btn" title="Show Applications">
+                <i class="fas fa-th"></i>
+            </button>
+            <div id="dock" class="dock">
+                <!-- Pinned apps will be here -->
+            </div>
+            <div id="taskbar">
+                <!-- Open windows will appear here -->
+            </div>
+            <div class="system-tray">
+                <i class="fas fa-chevron-up" id="show-tray-btn"></i>
+            </div>
+        </div>
+
+        <!-- Application Launcher (Activities Overview) -->
+        <div id="app-launcher" class="hidden">
+            <div class="launcher-search">
+                <input type="text" id="search-apps" placeholder="Type to search applications...">
+            </div>
+            <div class="launcher-grid" id="launcher-grid">
+                <!-- App icons will be generated here -->
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div id="context-menu" class="hidden">
+            <ul>
+                <li data-action="new-folder"><i class="fas fa-folder-plus"></i> New Folder</li>
+                <li data-action="new-file"><i class="fas fa-file"></i> New File</li>
+                <li data-action="terminal"><i class="fas fa-terminal"></i> Open Terminal Here</li>
+                <li data-action="change-bg"><i class="fas fa-image"></i> Change Background</li>
+                <li data-action="settings"><i class="fas fa-cog"></i> Settings</li>
+            </ul>
+        </div>
+
+        <!-- Notification Area -->
+        <div id="notification-area"></div>
+    </div>
+
+    <script src="js/apps.js"></script>
+    <script src="js/system.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background: #000;
+    user-select: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Boot Screen */
+#boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.boot-logo {
+    font-size: 8rem;
+    color: #fff;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.boot-text {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.boot-loader {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.boot-loader::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: #4CAF50;
+    animation: loading 1.5s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+}
+
+/* Login Screen */
+#login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem;
+    font-size: 3rem;
+}
+
+.login-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+#password-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+#login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#login-btn:hover {
+    background: #45a049;
+}
+
+/* Desktop Environment */
+#desktop {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top Bar */
+#top-bar {
+    height: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.top-left #activities-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#activities-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.system-icons i {
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.system-icons i:hover {
+    opacity: 0.7;
+}
+
+/* Desktop Area */
+#desktop-area {
+    position: absolute;
+    top: 30px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.desktop-icon {
+    width: 80px;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon i {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.desktop-icon span {
+    font-size: 0.8rem;
+    display: block;
+    word-wrap: break-word;
+}
+
+/* Windows Container */
+#windows-container {
+    position: absolute;
+    top: 30px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+}
+
+.window {
+    position: absolute;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.window-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.window-title {
+    font-weight: bold;
+}
+
+.window-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.window-control {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.window-close {
+    background: #ff5f56;
+}
+
+.window-minimize {
+    background: #ffbd2e;
+}
+
+.window-maximize {
+    background: #27c93f;
+}
+
+.window-content {
+    flex: 1;
+    overflow: auto;
+    padding: 1rem;
+    background: #f5f5f5;
+}
+
+/* Bottom Panel */
+#bottom-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+#show-apps-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.dock {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.dock-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dock-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.dock-btn.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid #4CAF50;
+}
+
+#taskbar {
+    flex: 1;
+    display: flex;
+    gap: 0.3rem;
+    margin: 0 0.5rem;
+}
+
+.taskbar-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 200px;
+}
+
+.taskbar-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-item.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.system-tray {
+    color: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+/* Application Launcher */
+#app-launcher {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.launcher-search {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+#search-apps {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+#search-apps::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.launcher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #fff;
+}
+
+.app-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.app-item i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.app-item span {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Context Menu */
+#context-menu {
+    position: absolute;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    z-index: 10000;
+}
+
+#context-menu ul {
+    list-style: none;
+}
+
+#context-menu li {
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#context-menu li:hover {
+    background: #f0f0f0;
+}
+
+#context-menu li i {
+    width: 20px;
+}
+
+/* Notification Area */
+#notification-area {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    z-index: 9999;
+}
+
+.notification {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    min-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.notification-title {
+    font-weight: bold;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Terminal Specific Styles */
+.terminal-window .window-content {
+    background: #1a1a2e;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    padding: 0.5rem;
+}
+
+.terminal-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-prompt {
+    color: #0f0;
+    margin-right: 0.5rem;
+}
+
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    flex: 1;
+    outline: none;
+}
+
+/* Text Editor Styles */
+.text-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.text-editor-toolbar {
+    background: #e0e0e0;
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.text-editor-toolbar button {
+    padding: 0.3rem 0.8rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.text-editor-toolbar button:hover {
+    background: #f0f0f0;
+}
+
+#editor-textarea {
+    flex: 1;
+    border: none;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+/* File Manager Styles */
+.file-manager {
+    display: flex;
+    height: 100%;
+}
+
+.file-sidebar {
+    width: 200px;
+    background: #f0f0f0;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+}
+
+.file-sidebar ul {
+    list-style: none;
+}
+
+.file-sidebar li {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-sidebar li:hover {
+    background: #e0e0e0;
+}
+
+.file-main {
+    flex: 1;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+}
+
+.file-item {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-item:hover {
+    background: #e0e0e0;
+}
+
+.file-item i {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.file-item span {
+    font-size: 0.8rem;
+    word-wrap: break-word;
+}
+
+/* Calculator Styles */
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.calc-display {
+    grid-column: 1 / -1;
+    background: #222;
+    color: #0f0;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.calc-btn {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #f0f0f0;
+    transition: background 0.3s;
+}
+
+.calc-btn:hover {
+    background: #e0e0e0;
+}
+
+.calc-btn.operator {
+    background: #667eea;
+    color: #fff;
+}
+
+.calc-btn.operator:hover {
+    background: #5a6fd6;
+}
+
+.calc-btn.equals {
+    background: #4CAF50;
+    color: #fff;
+}
+
+.calc-btn.equals:hover {
+    background: #45a049;
+}
+
+/* Browser Styles */
+.browser-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.browser-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+}
+
+.browser-toolbar input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.browser-toolbar button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.browser-frame {
+    flex: 1;
+    border: none;
+    background: #fff;
+}
+
+/* Settings Styles */
+.settings-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: 100%;
+}
+
+.settings-sidebar {
+    background: #f0f0f0;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+}
+
+.settings-sidebar ul {
+    list-style: none;
+}
+
+.settings-sidebar li {
+    padding: 0.8rem;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-sidebar li:hover {
+    background: #e0e0e0;
+}
+
+.settings-sidebar li.active {
+    background: #667eea;
+    color: #fff;
+}
+
+.settings-content {
+    padding: 2rem;
+    overflow: auto;
+}
+
+.setting-section {
+    margin-bottom: 2rem;
+}
+
+.setting-section h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.setting-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Image Viewer Styles */
+.image-viewer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #000;
+}
+
+.image-viewer-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Video Player Styles */
+.video-player-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #000;
+}
+
+.video-player-container video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Music Player Styles */
+.music-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.album-art {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.album-art i {
+    font-size: 5rem;
+    color: #fff;
+}
+
+.music-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.music-controls button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #667eea;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.music-controls button:hover {
+    background: #5a6fd6;
+}
+
+/* Code Editor Styles */
+.code-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.code-editor-toolbar {
+    background: #2d2d2d;
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #444;
+}
+
+.code-editor-toolbar select {
+    padding: 0.3rem;
+    background: #1a1a2e;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 3px;
+}
+
+#code-textarea {
+    flex: 1;
+    background: #1a1a2e;
+    color: #f8f8f2;
+    border: none;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+/* Weather App Styles */
+.weather-app {
+    padding: 2rem;
+    text-align: center;
+}
+
+.weather-main {
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+
+.weather-temp {
+    font-size: 3rem;
+    color: #667eea;
+}
+
+.weather-desc {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.weather-detail {
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* System Monitor Styles */
+.system-monitor {
+    padding: 1rem;
+}
+
+.monitor-item {
+    margin-bottom: 1.5rem;
+}
+
+.monitor-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.monitor-bar {
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.monitor-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.5s;
+}
+
+/* Game Styles */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #1a1a2e;
+}
+
+.game-canvas {
+    border: 2px solid #667eea;
+    background: #000;
+}
+
+/* Paint App Styles */
+.paint-app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.paint-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+.paint-toolbar button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.paint-toolbar input[type="color"] {
+    width: 40px;
+    height: 35px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.paint-toolbar input[type="range"] {
+    width: 100px;
+}
+
+#paint-canvas {
+    flex: 1;
+    background: #fff;
+    cursor: crosshair;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .launcher-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .window {
+        min-width: 90%;
+        min-height: 70%;
+    }
+    
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .settings-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
